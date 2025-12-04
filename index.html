@@ -57,20 +57,42 @@ index.html
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
+        /* Logo inspirado en SUV / Montero */
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 999px;
-            background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+            width: 40px;
+            height: 26px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 800;
             color: #0b1120;
+            box-shadow: 0 6px 16px rgba(248, 150, 30, 0.4);
+        }
+
+        .logo-icon::before,
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            width: 8px;
+            height: 4px;
+            border-radius: 999px;
+            background: #020617;
+        }
+
+        .logo-icon::before {
+            left: 6px;
+        }
+
+        .logo-icon::after {
+            right: 6px;
         }
 
         .logo-text {
@@ -360,6 +382,20 @@ index.html
             font-size: 18px;
         }
 
+        .social-links {
+            margin-top: 14px;
+            font-size: 13px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #e5e7eb;
+        }
+
+        .social-links a:hover {
+            color: #f97316;
+        }
+
         footer {
             border-top: 1px solid rgba(148, 163, 184, 0.25);
             padding: 16px 20px 26px;
@@ -438,8 +474,8 @@ index.html
 <header>
     <div class="nav">
         <div class="logo">
-            <div class="logo-icon">CR</div>
-            <div class="logo-text">Garage Diecast CR</div>
+            <div class="logo-icon">64</div>
+            <div class="logo-text">Garage 64 CR</div>
         </div>
         <nav class="nav-links">
             <a href="#inicio">Inicio</a>
@@ -448,7 +484,7 @@ index.html
             <a href="#comprar">Cómo comprar</a>
             <a href="#contacto">Contacto</a>
         </nav>
-        <a href="https://wa.me/50600000000" class="btn" target="_blank" rel="noopener">
+        <a href="https://wa.me/50685348882" class="btn" target="_blank" rel="noopener">
             WhatsApp
         </a>
     </div>
@@ -463,9 +499,9 @@ index.html
                 Tu próximo <span>Hot Wheels</span> favorito está aquí.
             </h1>
             <p class="hero-text">
-                Somos un emprendimiento de coleccionismo especializado en Hot Wheels y otros diecast.
-                Traemos modelos seleccionados, ediciones especiales y piezas listas para exhibir
-                en tu vitrina o pista.
+                En <strong>Garage 64 CR</strong> somos un emprendimiento de coleccionismo
+                especializado en Hot Wheels y otros diecast. Traemos modelos seleccionados,
+                ediciones especiales y piezas listas para exhibir en tu vitrina, escritorio o pista.
             </p>
             <div class="hero-actions">
                 <a href="#catalogo" class="btn">Ver catálogo</a>
@@ -501,64 +537,64 @@ index.html
     <section id="catalogo">
         <h2 class="section-title">Catálogo destacado</h2>
         <p class="section-subtitle">
-            Estos son algunos ejemplos de lo que puedes encontrar. Puedes actualizar los nombres,
-            precios e imágenes según tu inventario real.
+            Por ahora estos son ejemplos de modelos. Cuando tengas tu inventario listo, actualizamos
+            nombres, precios e información según tus carritos reales.
         </p>
 
         <div class="grid-productos">
             <article class="producto">
                 <div>
                     <div class="producto-badge">Hot Wheels • Mainline</div>
-                    <div class="producto-nombre">’95 Mazda RX-7 (Rojo)</div>
+                    <div class="producto-nombre">Modelo JDM básico</div>
                     <div class="producto-detalle">
-                        Serie J-Imports. Ideal para fans de JDM. Blíster en excelente estado.
+                        Ideal para iniciar o ampliar tu colección. Blíster en excelente estado.
                     </div>
                 </div>
                 <div class="producto-footer">
                     <div class="precio">₡4 500</div>
-                    <div class="etiqueta-stock">Disponible</div>
+                    <div class="etiqueta-stock">Ejemplo</div>
                 </div>
             </article>
 
             <article class="producto">
                 <div>
                     <div class="producto-badge">Hot Wheels • Premium</div>
-                    <div class="producto-nombre">Nissan Skyline GT-R (R34)</div>
+                    <div class="producto-nombre">Coupé deportivo premium</div>
                     <div class="producto-detalle">
-                        Llanta goma, mayor detalle. Perfecto para exhibición.
+                        Llantas de goma y mayor detalle. Pensado para vitrina.
                     </div>
                 </div>
                 <div class="producto-footer">
                     <div class="precio">₡9 500</div>
-                    <div class="etiqueta-stock">Pocas unidades</div>
+                    <div class="etiqueta-stock">Ejemplo</div>
                 </div>
             </article>
 
             <article class="producto">
                 <div>
                     <div class="producto-badge">Set • 5-Pack</div>
-                    <div class="producto-nombre">Nightburnerz 5-Pack</div>
+                    <div class="producto-nombre">Pack temático de 5 autos</div>
                     <div class="producto-detalle">
-                        Pack sellado con 5 modelos. Ideal para regalo o colección.
+                        Pack sellado. Perfecto para regalo o para coleccionar por tema.
                     </div>
                 </div>
                 <div class="producto-footer">
                     <div class="precio">₡12 000</div>
-                    <div class="etiqueta-stock">Bajo pedido</div>
+                    <div class="etiqueta-stock">Ejemplo</div>
                 </div>
             </article>
 
             <article class="producto">
                 <div>
                     <div class="producto-badge">Otros diecast</div>
-                    <div class="producto-nombre">Carrito escala 1:24</div>
+                    <div class="producto-nombre">SUV escala 1:24</div>
                     <div class="producto-detalle">
-                        Modelo metálico detallado. Puertas y capó abatibles.
+                        Modelo metálico detallado al estilo Montero, con puertas abatibles.
                     </div>
                 </div>
                 <div class="producto-footer">
                     <div class="precio">₡15 000</div>
-                    <div class="etiqueta-stock">Consultar</div>
+                    <div class="etiqueta-stock">Ejemplo</div>
                 </div>
             </article>
         </div>
@@ -575,9 +611,9 @@ index.html
             <div class="bloque">
                 <h3>Nuestra historia</h3>
                 <p>
-                    Garage 64 CR nace de la pasión por los carritos desde la infancia. Empezamos
-                    buscando modelos para nuestra propia colección y hoy ayudamos a más personas
-                    a encontrar esas piezas que siempre han querido.
+                    <strong>Garage 64 CR</strong> nace de la pasión por los carros y los carritos
+                    a escala. Empezamos buscando modelos para nuestra propia colección y hoy ayudamos
+                    a más personas a encontrar esas piezas que siempre han querido.
                 </p>
                 <p>
                     Trabajamos con importaciones bajo pedido y stock limitado, cuidando el estado
@@ -633,15 +669,30 @@ index.html
                 <p><strong>También puedes escribirnos directo por WhatsApp:</strong></p>
                 <p class="whatsapp-tag">
                     <span>📱</span> 
-                    <span>+506 8534-8882 </span>
+                    <span>+506 8534-8882</span>
                 </p>
+
+                <div class="social-links">
+                    <p><strong>Síguenos en redes sociales:</strong></p>
+                    <p>
+                        🌐 Sitio web: 
+                        <a href="https://sebastiancr0510.github.io/P-gina-emprendimiento/" target="_blank" rel="noopener">
+                            Garage 64 CR
+                        </a><br>
+                        📸 Instagram:
+                        <a href="https://instagram.com/garage64cr" target="_blank" rel="noopener">
+                            @garage64cr
+                        </a><br>
+                        👍 Facebook:
+                        <a href="https://facebook.com/garage64cr" target="_blank" rel="noopener">
+                            Garage 64 CR
+                        </a>
+                    </p>
+                </div>
+
                 <p style="margin-top:10px;">
                     Horario de atención sugerido: <br>
                     Lunes a sábado, 9:00 a.m. – 8:00 p.m.
-                </p>
-                <p>
-                    Una vez que tengas redes sociales del emprendimiento, puedes agregarlas aquí:
-                    Instagram, Facebook, TikTok, etc.
                 </p>
             </div>
         </div>
@@ -650,15 +701,15 @@ index.html
 
 <footer>
     <div class="footer-top">
-        © <span id="anio"></span> Garage Diecast CR · Emprendimiento coleccionista 🇨🇷
+        © <span id="anio"></span> Garage 64 CR · Emprendimiento coleccionista 🇨🇷
     </div>
     <div class="footer-small">
-        Página creada con HTML + CSS · Puedes mejorarla y ampliarla cuando quieras.
+        Página creada con HTML + CSS y alojada en GitHub Pages.
     </div>
 </footer>
 
-<!-- Botón flotante WhatsApp (recuerda cambiar el número) -->
-<a href="https://wa.me/50600000000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat por WhatsApp">
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/50685348882" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat por WhatsApp">
     💬
 </a>
 
@@ -670,10 +721,10 @@ index.html
     function enviarFormulario(e) {
         e.preventDefault();
         const nombre = document.getElementById('nombre').value || 'coleccionista';
-        const mensaje = document.getElementById('mensaje').value || '';
         const respuesta = document.getElementById('respuesta-form');
 
-        respuesta.textContent = '¡Gracias por escribirnos, ' + nombre + '! Este formulario es una demo. Para hacer un pedido real, contáctanos por WhatsApp.';
+        respuesta.textContent = '¡Gracias por escribirnos, ' + nombre +
+            '! Este formulario es una demo. Para hacer un pedido real, contáctanos por WhatsApp.';
     }
 </script>
 
