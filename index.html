@@ -239,19 +239,18 @@
     <h2>Contacto</h2>
     <p>Escribinos aquí y te responderemos a tu correo 📨</p>
 
-    <form action="https://formsubmit.co/garaje64cr@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="box">
-        <input type="hidden" name="_subject" value="Nuevo mensaje de Garage 64 CR">
-        <input type="hidden" name="_next"
-               value="https://sebastiancr0510.github.io/P-gina-emprendimiento/#contacto">
-
+    <!-- Formulario que abre el correo del cliente con tus datos -->
+    <form action="mailto:garaje64cr@gmail.com" method="POST" enctype="text/plain">
         <input name="Nombre" placeholder="Tu nombre" required>
         <input type="email" name="Correo" placeholder="Tu correo" required>
         <textarea name="Mensaje" placeholder="¿Qué modelos te interesan?" required></textarea>
 
         <button class="btn" type="submit">Enviar mensaje ✉️</button>
     </form>
+
+    <p style="font-size:11px; margin-top:8px; color:rgba(226,232,240,0.8);">
+        *Al enviar se abrirá tu aplicación de correo para mandarnos un email directo a garaje64cr@gmail.com.
+    </p>
 </section>
 
 </main>
@@ -273,3 +272,4 @@ document.getElementById('anio').textContent = new Date().getFullYear();
 
 </body>
 </html>
+
