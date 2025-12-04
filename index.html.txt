@@ -1,0 +1,681 @@
+index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Garage Diecast CR - Carritos Coleccionables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fuente de Google (opcional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primario: #111827;
+            --color-secundario: #f97316;
+            --color-fondo: #0b1120;
+            --color-tarjeta: #111827;
+            --color-texto: #e5e7eb;
+            --color-texto-suave: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+            color: var(--color-texto);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(12px);
+            background: rgba(2, 6, 23, 0.92);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, #f97316, #ea580c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0b1120;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            font-size: 16px;
+        }
+
+        .nav-links a {
+            margin-left: 18px;
+            font-size: 14px;
+            text-decoration: none;
+            color: var(--color-texto-suave);
+        }
+
+        .nav-links a:hover {
+            color: #f9fafb;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            color: #111827;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(248, 150, 30, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px rgba(248, 150, 30, 0.4);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 30px;
+            align-items: center;
+            padding: 40px 0 20px;
+        }
+
+        .hero-pretitle {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #9ca3af;
+        }
+
+        .hero-title {
+            font-size: clamp(28px, 4vw, 38px);
+            margin: 8px 0 12px;
+        }
+
+        .hero-title span {
+            color: #f97316;
+        }
+
+        .hero-text {
+            font-size: 14px;
+            color: var(--color-texto-suave);
+            max-width: 460px;
+        }
+
+        .hero-actions {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .hero-small {
+            font-size: 12px;
+            color: var(--color-texto-suave);
+        }
+
+        .hero-card {
+            background: radial-gradient(circle at top left, #1f2937, #020617);
+            border-radius: 18px;
+            padding: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #9ca3af;
+            letter-spacing: 0.12em;
+            margin-bottom: 6px;
+        }
+
+        .hero-highlight {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .hero-mini {
+            border-radius: 12px;
+            padding: 10px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            font-size: 11px;
+        }
+
+        .hero-mini strong {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: var(--color-texto-suave);
+            margin-bottom: 20px;
+        }
+
+        /* Catálogo */
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 16px;
+        }
+
+        .producto {
+            background: var(--color-tarjeta);
+            border-radius: 14px;
+            padding: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .producto-badge {
+            font-size: 11px;
+            color: #f97316;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 4px;
+        }
+
+        .producto-nombre {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .producto-detalle {
+            font-size: 12px;
+            color: var(--color-texto-suave);
+            margin-bottom: 8px;
+        }
+
+        .producto-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 6px;
+        }
+
+        .precio {
+            font-weight: 600;
+            font-size: 15px;
+            color: #f97316;
+        }
+
+        .etiqueta-stock {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--color-texto-suave);
+        }
+
+        /* Quiénes somos & Cómo comprar */
+        .info-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 22px;
+        }
+
+        .bloque {
+            background: rgba(15, 23, 42, 0.75);
+            border-radius: 16px;
+            padding: 16px 18px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+        }
+
+        .bloque h3 {
+            margin-top: 0;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .bloque p, .bloque li {
+            font-size: 13px;
+            color: var(--color-texto-suave);
+        }
+
+        .bloque ul {
+            padding-left: 18px;
+            margin: 8px 0 0;
+        }
+
+        /* Contacto */
+        .contacto-wrapper {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 12px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            background: rgba(15, 23, 42, 0.85);
+            color: var(--color-texto);
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: 1px solid #f97316;
+            border-color: #f97316;
+        }
+
+        .contacto-extra {
+            font-size: 13px;
+            color: var(--color-texto-suave);
+        }
+
+        .whatsapp-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .whatsapp-tag span {
+            font-size: 18px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            padding: 16px 20px 26px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--color-texto-suave);
+            background: #020617;
+        }
+
+        .footer-top {
+            margin-bottom: 4px;
+        }
+
+        .footer-small {
+            font-size: 10px;
+        }
+
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            width: 50px;
+            height: 50px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            background: #22c55e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(22, 163, 74, 0.6);
+            text-decoration: none;
+            z-index: 30;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero-card {
+                order: -1;
+            }
+
+            .info-grid,
+            .contacto-wrapper {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding-bottom: 80px;
+            }
+
+            .hero {
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <div class="logo">
+            <div class="logo-icon">CR</div>
+            <div class="logo-text">Garage Diecast CR</div>
+        </div>
+        <nav class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#somos">Quiénes somos</a>
+            <a href="#comprar">Cómo comprar</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <a href="https://wa.me/50600000000" class="btn" target="_blank" rel="noopener">
+            WhatsApp
+        </a>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div>
+            <div class="hero-pretitle">Carritos coleccionables en Costa Rica</div>
+            <h1 class="hero-title">
+                Tu próximo <span>Hot Wheels</span> favorito está aquí.
+            </h1>
+            <p class="hero-text">
+                Somos un emprendimiento de coleccionismo especializado en Hot Wheels y otros diecast.
+                Traemos modelos seleccionados, ediciones especiales y piezas listas para exhibir
+                en tu vitrina o pista.
+            </p>
+            <div class="hero-actions">
+                <a href="#catalogo" class="btn">Ver catálogo</a>
+                <span class="hero-small">Envíos a todo Costa Rica 🇨🇷</span>
+            </div>
+        </div>
+
+        <aside class="hero-card">
+            <div class="hero-tag">Selección destacada</div>
+            <div class="hero-highlight">Nuevos ingresos cada semana.</div>
+            <div class="hero-grid">
+                <div class="hero-mini">
+                    <strong>🔥 Mainlines & Premium</strong>
+                    Modelos básicos, ediciones premium, sets temáticos y más.
+                </div>
+                <div class="hero-mini">
+                    <strong>📦 Estado sellado</strong>
+                    Blisters en excelente estado, ideales para coleccionistas.
+                </div>
+                <div class="hero-mini">
+                    <strong>🚚 Envíos seguros</strong>
+                    Empaque protegido para que llegue intacto a tus manos.
+                </div>
+                <div class="hero-mini">
+                    <strong>💬 Atención directa</strong>
+                    Te atendemos por WhatsApp para coordinar reservas y pedidos.
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo">
+        <h2 class="section-title">Catálogo destacado</h2>
+        <p class="section-subtitle">
+            Estos son algunos ejemplos de lo que puedes encontrar. Puedes actualizar los nombres,
+            precios e imágenes según tu inventario real.
+        </p>
+
+        <div class="grid-productos">
+            <article class="producto">
+                <div>
+                    <div class="producto-badge">Hot Wheels • Mainline</div>
+                    <div class="producto-nombre">’95 Mazda RX-7 (Rojo)</div>
+                    <div class="producto-detalle">
+                        Serie J-Imports. Ideal para fans de JDM. Blíster en excelente estado.
+                    </div>
+                </div>
+                <div class="producto-footer">
+                    <div class="precio">₡4 500</div>
+                    <div class="etiqueta-stock">Disponible</div>
+                </div>
+            </article>
+
+            <article class="producto">
+                <div>
+                    <div class="producto-badge">Hot Wheels • Premium</div>
+                    <div class="producto-nombre">Nissan Skyline GT-R (R34)</div>
+                    <div class="producto-detalle">
+                        Llanta goma, mayor detalle. Perfecto para exhibición.
+                    </div>
+                </div>
+                <div class="producto-footer">
+                    <div class="precio">₡9 500</div>
+                    <div class="etiqueta-stock">Pocas unidades</div>
+                </div>
+            </article>
+
+            <article class="producto">
+                <div>
+                    <div class="producto-badge">Set • 5-Pack</div>
+                    <div class="producto-nombre">Nightburnerz 5-Pack</div>
+                    <div class="producto-detalle">
+                        Pack sellado con 5 modelos. Ideal para regalo o colección.
+                    </div>
+                </div>
+                <div class="producto-footer">
+                    <div class="precio">₡12 000</div>
+                    <div class="etiqueta-stock">Bajo pedido</div>
+                </div>
+            </article>
+
+            <article class="producto">
+                <div>
+                    <div class="producto-badge">Otros diecast</div>
+                    <div class="producto-nombre">Carrito escala 1:24</div>
+                    <div class="producto-detalle">
+                        Modelo metálico detallado. Puertas y capó abatibles.
+                    </div>
+                </div>
+                <div class="producto-footer">
+                    <div class="precio">₡15 000</div>
+                    <div class="etiqueta-stock">Consultar</div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS / CÓMO COMPRAR -->
+    <section id="somos">
+        <h2 class="section-title">Quiénes somos</h2>
+        <p class="section-subtitle">
+            Un emprendimiento hecho por coleccionistas, para coleccionistas.
+        </p>
+
+        <div class="info-grid">
+            <div class="bloque">
+                <h3>Nuestra historia</h3>
+                <p>
+                    Garage Diecast CR nace de la pasión por los carritos desde la infancia. Empezamos
+                    buscando modelos para nuestra propia colección y hoy ayudamos a más personas
+                    a encontrar esas piezas que siempre han querido.
+                </p>
+                <p>
+                    Trabajamos con importaciones bajo pedido y stock limitado, cuidando el estado
+                    de cada pieza para que llegue a tus manos en las mejores condiciones posibles.
+                </p>
+            </div>
+
+            <div class="bloque" id="comprar">
+                <h3>¿Cómo comprar?</h3>
+                <ul>
+                    <li1️⃣ Toma captura del carrito o anota el nombre del modelo.</li>
+                    <li>2️⃣ Escríbenos por WhatsApp con la lista de lo que te interesa.</li>
+                    <li>3️⃣ Te confirmamos disponibilidad, precio final y envío.</li>
+                    <li>4️⃣ Realizas el pago por SINPE Móvil o transferencia.</li>
+                    <li>5️⃣ Te enviamos el paquete y compartimos el comprobante de envío.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-subtitle">
+            Si tienes alguna duda, buscas un modelo específico o quieres cotizar varios carritos,
+            puedes escribirnos directamente.
+        </p>
+
+        <div class="contacto-wrapper">
+            <div>
+                <form onsubmit="enviarFormulario(event)">
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" placeholder="Tu nombre">
+                    </div>
+
+                    <div>
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" placeholder="tunombre@correo.com">
+                    </div>
+
+                    <div>
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" placeholder="¿Qué modelos te interesan?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Enviar mensaje (demo)</button>
+                </form>
+                <p id="respuesta-form" style="font-size:12px; margin-top:8px;"></p>
+            </div>
+
+            <div class="contacto-extra">
+                <p><strong>También puedes escribirnos directo por WhatsApp:</strong></p>
+                <p class="whatsapp-tag">
+                    <span>📱</span> 
+                    <span>+506 0000-0000 (cámbialo por tu número real)</span>
+                </p>
+                <p style="margin-top:10px;">
+                    Horario de atención sugerido: <br>
+                    Lunes a sábado, 9:00 a.m. – 8:00 p.m.
+                </p>
+                <p>
+                    Una vez que tengas redes sociales del emprendimiento, puedes agregarlas aquí:
+                    Instagram, Facebook, TikTok, etc.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-top">
+        © <span id="anio"></span> Garage Diecast CR · Emprendimiento coleccionista 🇨🇷
+    </div>
+    <div class="footer-small">
+        Página creada con HTML + CSS · Puedes mejorarla y ampliarla cuando quieras.
+    </div>
+</footer>
+
+<!-- Botón flotante WhatsApp (recuerda cambiar el número) -->
+<a href="https://wa.me/50600000000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat por WhatsApp">
+    💬
+</a>
+
+<script>
+    // Año actual en el footer
+    document.getElementById('anio').textContent = new Date().getFullYear();
+
+    // Simular envío de formulario
+    function enviarFormulario(e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value || 'coleccionista';
+        const mensaje = document.getElementById('mensaje').value || '';
+        const respuesta = document.getElementById('respuesta-form');
+
+        respuesta.textContent = '¡Gracias por escribirnos, ' + nombre + '! Este formulario es una demo. Para hacer un pedido real, contáctanos por WhatsApp.';
+    }
+</script>
+
+</body>
+</html>
