@@ -588,7 +588,7 @@ index.html
             <div class="bloque" id="comprar">
                 <h3>¿Cómo comprar?</h3>
                 <ul>
-                    <li1️⃣ Toma captura del carrito o anota el nombre del modelo.</li>
+                    <li>1️⃣ Toma captura del carrito o anota el nombre del modelo.</li>
                     <li>2️⃣ Escríbenos por WhatsApp con la lista de lo que te interesa.</li>
                     <li>3️⃣ Te confirmamos disponibilidad, precio final y envío.</li>
                     <li>4️⃣ Realizas el pago por SINPE Móvil o transferencia.</li>
