@@ -1,266 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Garage 64 CR - Carritos Coleccionables</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Fuente Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Garage 64 CR - Hot Wheels en Costa Rica</title>
 
     <style>
         :root {
-            --color-primario: #111827;
-            --color-secundario: #f97316;
-            --color-fondo: #0b1120;
-            --color-tarjeta: #111827;
-            --color-texto: #e5e7eb;
-            --color-texto-suave: #9ca3af;
-        }
-
-        * {
-            box-sizing: border-box;
+            --color-fondo: #0f172a;
+            --color-texto: #f1f5f9;
+            --color-secundario: #cbd5e1;
+            --color-acento: #ff7a00;
+            --color-acento-oscuro: #e06600;
+            --color-card: #1e293b;
         }
 
         body {
             margin: 0;
             font-family: "Poppins", sans-serif;
-            background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+            background: var(--color-fondo);
             color: var(--color-texto);
         }
 
         header {
-            position: sticky;
+            width: 100%;
+            position: fixed;
             top: 0;
-            z-index: 20;
-            backdrop-filter: blur(12px);
-            background: rgba(2, 6, 23, 0.92);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-        }
-
-        .nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 10px 20px;
+            left: 0;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 12px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 28px;
-            background: linear-gradient(135deg, #f97316, #fb923c);
-            border-radius: 10px;
-            color: #0b1120;
-            font-weight: 800;
-            font-size: 15px;
+        /* LOGO */
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--color-texto);
+            gap: 8px;
+        }
+
+        .logo-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--color-acento);
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 6px 16px rgba(248, 150, 30, 0.4);
+            font-weight: 700;
+            color: #000;
+            border: 2px solid #00000055;
         }
 
-        .nav-links a,
-        a {
+        nav a {
+            color: var(--color-texto);
+            margin-left: 25px;
             text-decoration: none;
-            color: var(--color-texto-suave);
-            margin-left: 15px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-acento);
+        }
+
+        /* HERO */
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         .btn {
-            background: linear-gradient(135deg, #f97316, #fb923c);
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-size: 14px;
+            display: inline-block;
+            margin-top: 20px;
+            background: var(--color-acento);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 6px;
             font-weight: 600;
-            border: none;
-            cursor: pointer;
-            color: #111827;
-            box-shadow: 0 8px 25px rgba(248, 150, 30, 0.3);
+            text-decoration: none;
+            transition: 0.3s;
         }
 
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .btn:hover {
+            background: var(--color-acento-oscuro);
         }
 
-        .hero {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 30px;
-            align-items: center;
+        /* CONTACTO */
+        #contacto {
+            padding: 90px 30px;
+            width: 90%;
+            margin: auto;
         }
 
-        .hero-title span {
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--color-acento);
+        }
+
+        .section-subtitle {
             color: var(--color-secundario);
+            margin-bottom: 30px;
         }
 
-        .hero-media {
-            position: relative;
+        .contacto-wrapper {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        .hero-bg-circle {
-            content: "";
-            width: 270px;
-            height: 270px;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.7), rgba(0, 0, 0, 0.2));
-            border-radius: 50%;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .hero-car {
+        form {
+            background: var(--color-card);
+            padding: 25px;
+            border-radius: 12px;
             width: 100%;
-            animation: floatCar 3s infinite alternate;
+            max-width: 450px;
         }
 
-        @keyframes floatCar {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-8px) scale(1.03); }
-        }
-
-        input, textarea {
+        form input,
+        form textarea {
             width: 100%;
-            padding: 10px;
-            background: rgba(15, 23, 42, 0.85);
-            color: var(--color-texto);
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            border-radius: 8px;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 18px;
+            border-radius: 6px;
+            border: none;
         }
 
         textarea {
-            min-height: 90px;
+            height: 130px;
+            resize: none;
+        }
+
+        .contacto-extra {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .whatsapp-tag {
+            background: #075e54;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
         footer {
-            border-top: 1px solid rgba(148, 163, 184, 0.28);
-            padding: 20px;
+            margin-top: 80px;
             text-align: center;
-            font-size: 12px;
-            background: #020617;
-            color: var(--color-texto-suave);
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            background: #22c55e;
-            width: 50px;
-            height: 50px;
-            border-radius: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 26px;
-            text-decoration: none;
-            box-shadow: 0 10px 30px rgba(22, 163, 74, 0.6);
+            padding: 25px;
+            color: var(--color-secundario);
+            background: #0b1220;
+            border-top: 1px solid #ffffff0f;
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="nav">
-        <div class="logo-icon">64</div>
-        <nav class="nav-links">
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <div class="logo-circle">64</div>
+            Garage 64 CR
+        </div>
+
+        <nav>
             <a href="#inicio">Inicio</a>
             <a href="#catalogo">Catálogo</a>
-            <a href="#somos">Quiénes somos</a>
+            <a href="#quienes">Quiénes somos</a>
             <a href="#comprar">Cómo comprar</a>
             <a href="#contacto">Contacto</a>
         </nav>
-        <a href="https://wa.me/50685348882" class="btn" target="_blank">WhatsApp</a>
-    </div>
-</header>
+    </header>
 
-<main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div>
+            <h1>Tu próximo Hot Wheels favorito está aquí 🔥</h1>
+            <p>Modelos exclusivos, ediciones especiales y piezas listas para tu vitrina.</p>
+            <a href="#catalogo" class="btn">Ver catálogo</a>
+        </div>
 
-<!-- HERO -->
-<section id="inicio" class="hero">
-    <div>
-        <h1 class="hero-title">Tu próximo <span>Hot Wheels</span> favorito está aquí.</h1>
-        <p>Modelos seleccionados, ediciones especiales y stock limitado.</p>
-        <a href="#catalogo" class="btn">Ver catálogo</a>
-    </div>
+        <img src="montero.png" alt="Mitsubishi Montero" width="340">
+    </section>
 
-    <div class="hero-media">
-        <div class="hero-bg-circle"></div>
-        <img src="montero.png" class="hero-car" alt="Montero">
-    </div>
-</section>
+    <!-- CONTACTO FINAL (LISTO CON FORMSUBMIT) -->
+    <section id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-subtitle">
+            Completa el formulario para enviarnos un mensaje directo por correo. 👍
+        </p>
 
+        <div class="contacto-wrapper">
 
-<!-- CONTACTO (EmailJS) -->
-<section id="contacto">
-    <h2>Contacto</h2>
-    <p>Completa el formulario para enviarnos tu mensaje 👇</p>
+            <!-- FORMULARIO REAL -->
+            <form action="https://formsubmit.co/garaje64cr@gmail.com" method="POST">
 
-    <form id="contact-form">
-        <label>Nombre:</label>
-        <input type="text" name="name" required placeholder="Tu nombre">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde Garage 64 CR">
+                <input type="hidden" name="_next"
+                       value="https://sebastiancr0510.github.io/P-gina-emprendimiento/#contacto">
 
-        <label>Correo:</label>
-        <input type="email" name="email" required placeholder="tunombre@gmail.com">
+                <label>Nombre</label>
+                <input type="text" name="nombre" required placeholder="Tu nombre">
 
-        <label>Mensaje:</label>
-        <textarea name="message" required placeholder="¿Qué modelos te interesan?"></textarea>
+                <label>Correo electrónico</label>
+                <input type="email" name="correo" required placeholder="tunombre@correo.com">
 
-        <button class="btn" type="submit">Enviar mensaje</button>
-        <p id="contact-status" style="margin-top:8px; font-size:13px;"></p>
-    </form>
-</section>
+                <label>Mensaje</label>
+                <textarea name="mensaje" required placeholder="¿Qué modelos te interesan?"></textarea>
 
-</main>
+                <button type="submit" class="btn">Enviar mensaje</button>
+            </form>
 
-<footer>
-    © <span id="anio"></span> Garage 64 CR - Costa Rica 🇨🇷
-</footer>
+            <!-- INFORMACIÓN EXTRA -->
+            <div class="contacto-extra">
+                <p><strong>WhatsApp directo:</strong></p>
+                <p class="whatsapp-tag">📱 +506 8534-8882</p>
 
-<a href="https://wa.me/50685348882" class="whatsapp-float">💬</a>
+                <p><strong>Redes sociales:</strong></p>
+                <p>Instagram (próximamente)</p>
+                <p>Facebook (próximamente)</p>
 
-<script>
-document.getElementById('anio').textContent = new Date().getFullYear();
-</script>
+                <p style="margin-top:10px;">
+                    Atención: Lunes a sábado, 9:00 am – 8:00 pm.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- SCRIPT EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
+    <!-- FOOTER -->
+    <footer>
+        Garage 64 CR © <span id="anio"></span> — Todos los derechos reservados.
+    </footer>
 
-emailjs.init("hhpgvCFBPcvPke0NS");
-
-const form = document.getElementById('contact-form');
-const statusTxt = document.getElementById('contact-status');
-
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    statusTxt.textContent = "Enviando mensaje...";
-    statusTxt.style.color = "#f97316";
-
-    emailjs.sendForm("service_2dyaicn", "template_ss1o71s", this)
-        .then(() => {
-            statusTxt.textContent = "¡Mensaje enviado correctamente! ✨🚗 Pronto te contactaremos.";
-            statusTxt.style.color = "#22c55e";
-            form.reset();
-        })
-        .catch((error) => {
-            console.error(error);
-            statusTxt.textContent = "⚠️ Error al enviar el mensaje. Intenta nuevamente.";
-            statusTxt.style.color = "red";
-        });
-});
-
-</script>
+    <script>
+        // Año automático en footer
+        document.getElementById("anio").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
-
-
 
