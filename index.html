@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garage 64 CR - Hot Wheels en Costa Rica</title>
 
+    <!-- Fuente Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
         :root {
             --color-fondo: #0f172a;
@@ -15,6 +23,10 @@
             --color-card: #1e293b;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: "Poppins", sans-serif;
@@ -22,6 +34,7 @@
             color: var(--color-texto);
         }
 
+        /* HEADER */
         header {
             width: 100%;
             position: fixed;
@@ -81,12 +94,18 @@
             align-items: center;
             width: 85%;
             margin: auto;
+            gap: 40px;
         }
 
         .hero h1 {
             font-size: 3rem;
             font-weight: 700;
             line-height: 1.2;
+        }
+
+        .hero p {
+            margin-top: 10px;
+            color: var(--color-secundario);
         }
 
         .btn {
@@ -105,11 +124,19 @@
             background: var(--color-acento-oscuro);
         }
 
-        /* CONTACTO */
-        #contacto {
-            padding: 90px 30px;
+        .hero img {
+            max-width: 340px;
+            width: 100%;
+        }
+
+        /* SECCIONES GENERALES */
+        section {
             width: 90%;
             margin: auto;
+        }
+
+        .bloque {
+            padding: 90px 0;
         }
 
         .section-title {
@@ -124,13 +151,85 @@
             margin-bottom: 30px;
         }
 
+        /* CATÁLOGO */
+        .catalogo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--color-secundario);
+        }
+
+        .card .precio {
+            margin-top: 10px;
+            font-weight: 600;
+            color: var(--color-acento);
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.2);
+            color: var(--color-secundario);
+        }
+
+        /* QUIÉNES SOMOS */
+        .texto-quienes {
+            max-width: 700px;
+            color: var(--color-secundario);
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        /* CÓMO COMPRAR */
+        .pasos {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+            color: var(--color-secundario);
+        }
+
+        .pasos li {
+            margin-bottom: 10px;
+        }
+
+        .pasos span {
+            color: var(--color-acento);
+            font-weight: 600;
+        }
+
+        /* CONTACTO (SOLO WHATSAPP) */
+        #contacto {
+            padding-bottom: 100px;
+        }
+
         .contacto-wrapper {
             display: flex;
             gap: 40px;
             flex-wrap: wrap;
+            align-items: flex-start;
         }
 
-        form {
+        .contacto-card {
             background: var(--color-card);
             padding: 25px;
             border-radius: 12px;
@@ -138,19 +237,10 @@
             max-width: 450px;
         }
 
-        form input,
-        form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            margin-bottom: 18px;
-            border-radius: 6px;
-            border: none;
-        }
-
-        textarea {
-            height: 130px;
-            resize: none;
+        .contacto-card p {
+            color: var(--color-secundario);
+            font-size: 0.98rem;
+            margin-bottom: 14px;
         }
 
         .contacto-extra {
@@ -160,22 +250,97 @@
 
         .whatsapp-tag {
             background: #075e54;
-            padding: 10px;
+            padding: 10px 14px;
             border-radius: 8px;
             color: white;
             display: inline-flex;
             gap: 8px;
             align-items: center;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25d366;
+            color: #000;
+            padding: 10px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .whatsapp-btn span {
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1ebe57;
+        }
+
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .wa-float {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+            z-index: 200;
+        }
+
+        .wa-float span {
+            font-size: 1.6rem;
+            color: #000;
+        }
+
+        /* FOOTER */
         footer {
-            margin-top: 80px;
+            margin-top: 0;
             text-align: center;
             padding: 25px;
             color: var(--color-secundario);
             background: #0b1220;
             border-top: 1px solid #ffffff0f;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            header {
+                padding: 12px 20px;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero img {
+                max-width: 260px;
+            }
+
+            .contacto-wrapper {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -206,53 +371,140 @@
             <a href="#catalogo" class="btn">Ver catálogo</a>
         </div>
 
+        <!-- Mantiene la misma imagen y tamaño -->
         <img src="montero.png" alt="Mitsubishi Montero" width="340">
     </section>
 
-    <!-- CONTACTO FINAL (LISTO CON FORMSUBMIT) -->
-    <section id="contacto">
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="bloque">
+        <h2 class="section-title">Catálogo</h2>
+        <p class="section-subtitle">
+            Algunos de los modelos que puedes encontrar en Garage 64 CR. Consulta por disponibilidad actual.
+        </p>
+
+        <div class="catalogo-grid">
+            <div class="card">
+                <h3>Hot Wheels JDM Clásico</h3>
+                <p>Mitsubishi, Nissan, Toyota y más modelos icónicos.</p>
+                <p class="precio">Desde ₡3.000</p>
+                <span class="tag">Stock limitado</span>
+            </div>
+
+            <div class="card">
+                <h3>Ediciones Premium</h3>
+                <p>Modelos con más detalle y llantas de goma, perfectos para vitrina.</p>
+                <p class="precio">Desde ₡7.000</p>
+                <span class="tag">Coleccionistas</span>
+            </div>
+
+            <div class="card">
+                <h3>Vehículos Europeos</h3>
+                <p>BMW, Mercedes-Benz, Audi y más.</p>
+                <p class="precio">Desde ₡3.500</p>
+                <span class="tag">Nuevos ingresos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="quienes" class="bloque">
+        <h2 class="section-title">Quiénes somos</h2>
+        <p class="section-subtitle">
+            Garage 64 CR — Pasión por los Hot Wheels en Costa Rica.
+        </p>
+
+        <div class="texto-quienes">
+            <p>
+                Somos un emprendimiento costarricense dedicado a la compra y venta de
+                modelos Hot Wheels, con enfoque en piezas especiales, ediciones de colección
+                y modelos difíciles de conseguir en el país.
+            </p>
+            <br>
+            <p>
+                Nuestro objetivo es ayudarte a completar tu vitrina, iniciar tu colección
+                o encontrar ese carro específico que siempre has querido. Trabajamos con
+                pedidos limitados, por lo que cada pieza se selecciona con cuidado.
+            </p>
+            <br>
+            <p>
+                Atendemos por WhatsApp para darte un trato más directo, coordinar entregas
+                y resolver dudas de forma rápida.
+            </p>
+        </div>
+    </section>
+
+    <!-- CÓMO COMPRAR -->
+    <section id="comprar" class="bloque">
+        <h2 class="section-title">Cómo comprar</h2>
+        <p class="section-subtitle">
+            Sigue estos pasos para llevarte tus modelos favoritos.
+        </p>
+
+        <ul class="pasos">
+            <li><span>1.</span> Revisa el catálogo y el contenido que publicamos.</li>
+            <li><span>2.</span> Escríbenos por WhatsApp indicando los modelos que te interesan.</li>
+            <li><span>3.</span> Te confirmamos disponibilidad, precio final y forma de entrega.</li>
+            <li><span>4.</span> Coordinamos entrega o envío dentro de Costa Rica.</li>
+        </ul>
+    </section>
+
+    <!-- CONTACTO (SOLO WHATSAPP) -->
+    <section id="contacto" class="bloque">
         <h2 class="section-title">Contacto</h2>
         <p class="section-subtitle">
-            Completa el formulario para enviarnos un mensaje directo por correo. 👍
+            La única forma de contacto desde la página es por WhatsApp 📲
         </p>
 
         <div class="contacto-wrapper">
+            <!-- TARJETA PRINCIPAL WHATSAPP -->
+            <div class="contacto-card">
+                <p>
+                    Si quieres más información, fotos de los modelos disponibles o cotizar un pedido,
+                    escríbenos directamente a WhatsApp. Ahí coordinamos todo:
+                    reservas, envíos y consultas rápidas.
+                </p>
 
-            <!-- FORMULARIO REAL -->
-            <form action="https://formsubmit.co/garaje64cr@gmail.com" method="POST">
+                <p><strong>WhatsApp directo:</strong></p>
+                <div class="whatsapp-tag">
+                    📱 +506 8534-8882
+                </div>
 
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde Garage 64 CR">
-                <input type="hidden" name="_next"
-                       value="https://sebastiancr0510.github.io/P-gina-emprendimiento/#contacto">
-
-                <label>Nombre</label>
-                <input type="text" name="nombre" required placeholder="Tu nombre">
-
-                <label>Correo electrónico</label>
-                <input type="email" name="correo" required placeholder="tunombre@correo.com">
-
-                <label>Mensaje</label>
-                <textarea name="mensaje" required placeholder="¿Qué modelos te interesan?"></textarea>
-
-                <button type="submit" class="btn">Enviar mensaje</button>
-            </form>
+                <a
+                    class="whatsapp-btn"
+                    href="https://wa.me/50685348882?text=Hola%2C%20vengo%20desde%20la%20p%C3%A1gina%20de%20Garage%2064%20CR%20y%20me%20interesan%20los%20Hot%20Wheels."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>💬</span> Escribir por WhatsApp
+                </a>
+            </div>
 
             <!-- INFORMACIÓN EXTRA -->
             <div class="contacto-extra">
-                <p><strong>WhatsApp directo:</strong></p>
-                <p class="whatsapp-tag">📱 +506 8534-8882</p>
-
                 <p><strong>Redes sociales:</strong></p>
                 <p>Instagram (próximamente)</p>
                 <p>Facebook (próximamente)</p>
 
-                <p style="margin-top:10px;">
-                    Atención: Lunes a sábado, 9:00 am – 8:00 pm.
+                <p style="margin-top:14px;">
+                    <strong>Horario de atención:</strong><br>
+                    Lunes a sábado, 9:00 am – 8:00 pm.
+                </p>
+                <p style="margin-top:10px; color: var(--color-secundario); font-size:0.9rem;">
+                    Si escribes fuera de este horario, te responderemos en cuanto sea posible.
                 </p>
             </div>
         </div>
     </section>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a
+        class="wa-float"
+        href="https://wa.me/50685348882?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20Hot%20Wheels%20de%20Garage%2064%20CR."
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span>💬</span>
+    </a>
 
     <!-- FOOTER -->
     <footer>
