@@ -42,7 +42,7 @@
             left: 0;
             background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(8px);
-            padding: 12px 40px;
+            padding: 12px 28px; /* menos ancho */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,7 +74,7 @@
             position: relative;
         }
 
-        /* Silueta de carrito en el logo */
+        /* silueta de carrito en miniatura */
         .logo-circle::after {
             content: "🚙";
             position: absolute;
@@ -84,9 +84,14 @@
             text-shadow: 0 0 3px rgba(0,0,0,0.5);
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 18px; /* antes se manejaba con margin-left */
+        }
+
         nav a {
             color: var(--color-texto);
-            margin-left: 25px;
             text-decoration: none;
             font-size: 0.95rem;
             transition: 0.3s;
@@ -135,20 +140,23 @@
             background: var(--color-acento-oscuro);
         }
 
-        /* Fondo naranja detrás del PNG */
+        /* CÍRCULO NARANJA CON PNG (opción B: carro sobresale un poco) */
         .hero-car-bg {
-            background: var(--color-acento); /* NARANJA */
-            padding: 18px 22px;
-            border-radius: 18px;
+            background: var(--color-acento);
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
             box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible; /* permite que el carro se salga un poquito */
         }
 
         .hero-car-bg img {
-            display: block;
-            max-width: 340px;
-            width: 100%;
-            height: auto;
+            max-width: none;
+            width: 115%;              /* un poco más grande que el círculo */
+            transform: translateX(10px); /* lo mueve un poquito a la derecha */
         }
 
         /* SECCIONES GENERALES */
@@ -339,11 +347,14 @@
         /* RESPONSIVE */
         @media (max-width: 850px) {
             header {
-                padding: 12px 20px;
+                padding: 12px 18px;
+            }
+
+            nav {
+                gap: 12px;
             }
 
             nav a {
-                margin-left: 15px;
                 font-size: 0.85rem;
             }
 
@@ -356,8 +367,13 @@
                 font-size: 2.2rem;
             }
 
+            .hero-car-bg {
+                width: 230px;
+                height: 230px;
+            }
+
             .hero-car-bg img {
-                max-width: 260px;
+                width: 120%;
             }
 
             .contacto-wrapper {
@@ -393,7 +409,7 @@
             <a href="#catalogo" class="btn">Ver catálogo</a>
         </div>
 
-        <!-- PNG con fondo naranja SOLO desde CSS -->
+        <!-- PNG dentro de círculo naranja -->
         <div class="hero-car-bg">
             <img src="montero.png" alt="Mitsubishi Montero">
         </div>
@@ -542,4 +558,5 @@
 
 </body>
 </html>
+
 
