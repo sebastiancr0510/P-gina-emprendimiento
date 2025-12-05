@@ -1,620 +1,266 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Garage 64 CR - Carritos Coleccionables</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fuente Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --color-primario: #111827;
             --color-secundario: #f97316;
             --color-fondo: #0b1120;
+            --color-tarjeta: #111827;
             --color-texto: #e5e7eb;
             --color-texto-suave: #9ca3af;
         }
 
         * {
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
             font-family: "Poppins", sans-serif;
-            background: radial-gradient(circle at top, #1f2937 0, #020617 65%);
+            background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
             color: var(--color-texto);
         }
 
-        /* HEADER */
         header {
             position: sticky;
             top: 0;
-            background: rgba(2, 6, 23, 0.9);
+            z-index: 20;
             backdrop-filter: blur(12px);
-            z-index: 100;
+            background: rgba(2, 6, 23, 0.92);
             border-bottom: 1px solid rgba(148, 163, 184, 0.2);
         }
 
         .nav {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 12px 20px;
+            padding: 10px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-        }
-
-        /* LOGO */
-        .logo {
-            display: flex;
             align-items: center;
-            gap: 10px;
         }
 
-        .logo svg {
-            width: 46px;
-            fill: var(--color-secundario);
+        .logo-icon {
+            width: 50px;
+            height: 28px;
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            border-radius: 10px;
+            color: #0b1120;
+            font-weight: 800;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 16px rgba(248, 150, 30, 0.4);
         }
 
-        .logo-text {
-            font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 0.03em;
-        }
-
-        nav a {
-            margin-left: 20px;
+        .nav-links a,
+        a {
             text-decoration: none;
-            font-size: 14px;
             color: var(--color-texto-suave);
-        }
-
-        nav a:hover {
-            color: #ffffff;
+            margin-left: 15px;
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 10px 18px;
             background: linear-gradient(135deg, #f97316, #fb923c);
-            color: #111827;
+            padding: 10px 18px;
             border-radius: 999px;
             font-size: 14px;
             font-weight: 600;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            color: #111827;
             box-shadow: 0 8px 25px rgba(248, 150, 30, 0.3);
         }
 
-        .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 30px rgba(248, 150, 30, 0.4);
-        }
-
         main {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px 60px;
+            padding: 40px 20px;
         }
 
-        section {
-            margin-top: 60px;
-        }
-
-        h1, h2, h3 {
-            margin-top: 0;
-        }
-
-        /* HERO */
         .hero {
             display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            grid-template-columns: 1.5fr 1fr;
             gap: 30px;
             align-items: center;
-        }
-
-        .hero-pretitle {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--color-texto-suave);
-        }
-
-        .hero-title {
-            font-size: clamp(26px, 4vw, 36px);
-            margin: 10px 0 14px;
         }
 
         .hero-title span {
             color: var(--color-secundario);
         }
 
-        .hero-text {
-            font-size: 14px;
-            color: var(--color-texto-suave);
-            max-width: 480px;
-        }
-
-        .hero-actions {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .hero-small {
-            font-size: 12px;
-            color: var(--color-texto-suave);
-        }
-
         .hero-media {
             position: relative;
-            display: flex;
-            justify-content: center;
-            padding: 20px 10px;
         }
 
         .hero-bg-circle {
-            position: absolute;
-            width: 300px;
-            height: 300px;
+            content: "";
+            width: 270px;
+            height: 270px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.7), rgba(0, 0, 0, 0.2));
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.9), transparent);
-            filter: blur(1px);
-            box-shadow: 0 0 60px rgba(249, 115, 22, 0.6);
+            position: absolute;
+            z-index: -1;
         }
 
         .hero-car {
-            position: relative;
-            max-width: 100%;
-            height: auto;
-            animation: floatCar 4s ease-in-out infinite alternate;
+            width: 100%;
+            animation: floatCar 3s infinite alternate;
         }
 
         @keyframes floatCar {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
+            100% { transform: translateY(-8px) scale(1.03); }
         }
 
-        /* CATÁLOGO */
-        .section-title {
-            font-size: 20px;
-            margin-bottom: 6px;
-        }
-
-        .section-subtitle {
-            font-size: 13px;
-            color: var(--color-texto-suave);
-            margin-bottom: 18px;
-        }
-
-        .grid-productos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-        }
-
-        .producto {
+        input, textarea {
+            width: 100%;
+            padding: 10px;
             background: rgba(15, 23, 42, 0.85);
-            border-radius: 14px;
-            padding: 14px;
-            border: 1px solid rgba(148, 163, 184, 0.35);
+            color: var(--color-texto);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            border-radius: 8px;
         }
 
-        .producto-titulo {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .producto-detalle {
-            font-size: 12px;
-            color: var(--color-texto-suave);
-            margin-bottom: 8px;
-        }
-
-        .producto-footer {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            align-items: center;
-        }
-
-        .producto-tag {
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.6);
-            padding: 3px 8px;
-            font-size: 11px;
-            color: var(--color-texto-suave);
-        }
-
-        /* INFO / CÓMO COMPRAR */
-        .info-grid {
-            display: grid;
-            grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
-            gap: 22px;
-        }
-
-        .bloque {
-            background: rgba(15, 23, 42, 0.9);
-            border-radius: 16px;
-            padding: 16px 18px;
-            border: 1px solid rgba(148, 163, 184, 0.35);
-        }
-
-        .bloque p, .bloque li {
-            font-size: 13px;
-            color: var(--color-texto-suave);
-        }
-
-        .bloque ul {
-            padding-left: 18px;
-            margin: 8px 0 0;
-        }
-
-        /* CONTACTO */
-        .contacto-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-            gap: 20px;
-        }
-
-        .contacto-card {
-            background: rgba(15, 23, 42, 0.9);
-            border-radius: 16px;
-            padding: 16px 18px;
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            font-size: 13px;
-        }
-
-        .contacto-card p {
-            margin-top: 0;
-            color: var(--color-texto-suave);
-        }
-
-        .contact-email {
-            font-weight: 600;
-            color: #e5e7eb;
-        }
-
-        .whatsapp-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            margin-top: 6px;
-            color: var(--color-texto-suave);
-        }
-
-        .whatsapp-tag span:first-child {
-            font-size: 18px;
-        }
-
-        .social-links {
-            margin-top: 10px;
-            font-size: 13px;
-        }
-
-        .social-links a {
-            color: #e5e7eb;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            color: var(--color-secundario);
+        textarea {
+            min-height: 90px;
         }
 
         footer {
-            border-top: 1px solid rgba(148, 163, 184, 0.25);
-            padding: 16px 20px 24px;
+            border-top: 1px solid rgba(148, 163, 184, 0.28);
+            padding: 20px;
             text-align: center;
-            font-size: 11px;
-            color: var(--color-texto-suave);
+            font-size: 12px;
             background: #020617;
+            color: var(--color-texto-suave);
         }
 
-        .footer-top {
-            margin-bottom: 4px;
-        }
-
-        /* BOTÓN WHATSAPP FLOTANTE */
         .whatsapp-float {
             position: fixed;
             right: 18px;
             bottom: 18px;
+            background: #22c55e;
             width: 50px;
             height: 50px;
-            border-radius: 999px;
-            background: #22c55e;
-            color: #ffffff;
+            border-radius: 100%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            color: #fff;
             font-size: 26px;
             text-decoration: none;
-            box-shadow: 0 12px 30px rgba(22, 163, 74, 0.6);
-            z-index: 40;
-        }
-
-        .whatsapp-float:hover {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-                text-align: left;
-            }
-
-            .hero-media {
-                order: -1;
-            }
-
-            .info-grid,
-            .contacto-layout {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            nav {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            main {
-                padding-bottom: 80px;
-            }
+            box-shadow: 0 10px 30px rgba(22, 163, 74, 0.6);
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <div class="nav">
-        <div class="logo">
-            <!-- Silueta tipo Montero -->
-            <svg viewBox="0 0 640 320" aria-hidden="true">
-                <path d="M50 200 L120 150 L260 150 L280 180 L330 180 L380 150 L470 150 L550 200 L580 200 L580 230 L50 230 Z
-                         M140 230 A30 30 0 1 0 140 229 Z
-                         M470 230 A30 30 0 1 0 470 229 Z" />
-            </svg>
-            <div class="logo-text">Garage 64 CR</div>
-        </div>
-
-        <nav>
+        <div class="logo-icon">64</div>
+        <nav class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#catalogo">Catálogo</a>
             <a href="#somos">Quiénes somos</a>
             <a href="#comprar">Cómo comprar</a>
-            <!-- AQUÍ: al hacer clic en “Contacto” se abre directamente el correo -->
-            <a href="mailto:garaje64cr@gmail.com?subject=Consulta%20Garage%2064%20CR&body=Hola%20Garage%2064%20CR%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20carritos.%20">
-                Contacto
-            </a>
+            <a href="#contacto">Contacto</a>
         </nav>
-
-        <a
-            href="https://wa.me/50685348882?text=Hola%20Garage%2064%20CR%2C%20me%20interesan%20sus%20carritos%20coleccionables.%20🚗"
-            class="btn" target="_blank" rel="noopener"
-        >
-            WhatsApp
-        </a>
+        <a href="https://wa.me/50685348882" class="btn" target="_blank">WhatsApp</a>
     </div>
 </header>
 
 <main>
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-        <div>
-            <div class="hero-pretitle">Carritos coleccionables en Costa Rica</div>
-            <h1 class="hero-title">
-                Tu próximo <span>Hot Wheels</span> favorito está aquí.
-            </h1>
-            <p class="hero-text">
-                En <strong>Garage 64 CR</strong> somos un emprendimiento de coleccionismo
-                especializado en Hot Wheels, SUVs y otros diecast. Traemos modelos seleccionados,
-                ediciones especiales y piezas listas para exhibir en tu vitrina, escritorio o pista.
-            </p>
-            <div class="hero-actions">
-                <a href="#catalogo" class="btn">Ver catálogo</a>
-                <span class="hero-small">Envíos a todo Costa Rica 🇨🇷</span>
-            </div>
-        </div>
 
-        <div class="hero-media">
-            <div class="hero-bg-circle"></div>
-            <img src="montero.png" alt="Mitsubishi Montero 2014" class="hero-car" />
-        </div>
-    </section>
+<!-- HERO -->
+<section id="inicio" class="hero">
+    <div>
+        <h1 class="hero-title">Tu próximo <span>Hot Wheels</span> favorito está aquí.</h1>
+        <p>Modelos seleccionados, ediciones especiales y stock limitado.</p>
+        <a href="#catalogo" class="btn">Ver catálogo</a>
+    </div>
 
-    <!-- CATÁLOGO -->
-    <section id="catalogo">
-        <h2 class="section-title">Catálogo destacado</h2>
-        <p class="section-subtitle">
-            Pronto agregaremos tus modelos reales con fotos, precios y disponibilidad. Por ahora, estos son ejemplos.
-        </p>
-
-        <div class="grid-productos">
-            <article class="producto">
-                <div class="producto-titulo">Hot Wheels • Mainline</div>
-                <div class="producto-detalle">
-                    Modelo base ideal para iniciar colección. Blíster en buen estado.
-                </div>
-                <div class="producto-footer">
-                    <span>₡4 500</span>
-                    <span class="producto-tag">Próximamente</span>
-                </div>
-            </article>
-
-            <article class="producto">
-                <div class="producto-titulo">Hot Wheels • Premium</div>
-                <div class="producto-detalle">
-                    Llantas de goma y más detalle. Ideal para vitrina.
-                </div>
-                <div class="producto-footer">
-                    <span>₡9 500</span>
-                    <span class="producto-tag">Próximamente</span>
-                </div>
-            </article>
-
-            <article class="producto">
-                <div class="producto-titulo">Set 5-Pack temático</div>
-                <div class="producto-detalle">
-                    Pack sellado de 5 autos. Perfecto para regalo o colección por tema.
-                </div>
-                <div class="producto-footer">
-                    <span>₡12 000</span>
-                    <span class="producto-tag">Próximamente</span>
-                </div>
-            </article>
-
-            <article class="producto">
-                <div class="producto-titulo">SUV estilo Montero 1:24</div>
-                <div class="producto-detalle">
-                    Modelo metálico detallado, pensado para fans de SUVs.
-                </div>
-                <div class="producto-footer">
-                    <span>₡15 000</span>
-                    <span class="producto-tag">Próximamente</span>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- QUIÉNES SOMOS / CÓMO COMPRAR -->
-    <section id="somos">
-        <h2 class="section-title">Quiénes somos</h2>
-        <p class="section-subtitle">
-            Un emprendimiento hecho por coleccionistas, para coleccionistas.
-        </p>
-
-        <div class="info-grid">
-            <div class="bloque">
-                <h3>Nuestra visión</h3>
-                <p>
-                    <strong>Garage 64 CR</strong> nace de la pasión por los carros y los carritos
-                    a escala. Empezamos buscando piezas para nuestra propia colección y hoy ayudamos
-                    a más personas a encontrar esos modelos que siempre han querido.
-                </p>
-                <p>
-                    Trabajamos con stock limitado e importaciones bajo pedido, cuidando el estado
-                    de cada pieza para que llegue a tus manos en excelentes condiciones.
-                </p>
-            </div>
-
-            <div class="bloque" id="comprar">
-                <h3>¿Cómo comprar?</h3>
-                <ul>
-                    <li>1️⃣ Tomá captura o anotá el nombre del carrito que te interesa.</li>
-                    <li>2️⃣ Envíanos la información por WhatsApp.</li>
-                    <li>3️⃣ Te confirmamos disponibilidad, precio final y costo de envío.</li>
-                    <li>4️⃣ Pagás por SINPE Móvil o transferencia bancaria.</li>
-                    <li>5️⃣ Empacamos tu pedido y te compartimos el comprobante y tracking del envío.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
- <!-- CONTACTO con Formsubmit (envío automático a tu correo) -->
-<section id="contacto">
-    <h2 class="section-title">Contacto</h2>
-    <p class="section-subtitle">
-        Puedes escribirnos por WhatsApp o enviarnos un mensaje directo desde este formulario.
-        Te responderemos a tu correo lo antes posible 📩
-    </p>
-
-    <div class="contacto-layout">
-        <div class="contacto-card">
-            <h3>Envíanos un mensaje</h3>
-
-            <form action="https://formsubmit.co/garaje64cr@gmail.com" method="POST">
-                <!-- Configuración Formsubmit -->
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde Garage 64 CR">
-                <input type="hidden" name="_next" value="https://sebastiancr0510.github.io/P-gina-emprendimiento/#contacto">
-
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
-
-                <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" required placeholder="tunombre@correo.com">
-
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" required placeholder="¿Qué modelos te interesan?"></textarea>
-
-                <button type="submit" class="btn">Enviar mensaje</button>
-            </form>
-
-            <p class="contact-info">
-                También puedes escribirnos directo al WhatsApp:<br>
-                <strong>+506 8534-8882</strong>
-            </p>
-        </div>
+    <div class="hero-media">
+        <div class="hero-bg-circle"></div>
+        <img src="montero.png" class="hero-car" alt="Montero">
     </div>
 </section>
 
-            <div class="contacto-card">
-                <h3>WhatsApp & redes</h3>
-                <p><strong>WhatsApp directo:</strong></p>
-                <p class="whatsapp-tag">
-                    <span>📱</span>
-                    <span>+506 8534-8882</span>
-                </p>
 
-                <div class="social-links">
-                    <p><strong>Redes sociales (próximamente):</strong></p>
-                    <p>
-                        🌐 Sitio web:
-                        <a href="https://sebastiancr0510.github.io/P-gina-emprendimiento/" target="_blank" rel="noopener">
-                            Garage 64 CR
-                        </a><br />
-                        📸 Instagram:
-                        <a href="#" target="_blank" rel="noopener">(próximamente)</a><br />
-                        👍 Facebook:
-                        <a href="#" target="_blank" rel="noopener">(próximamente)</a>
-                    </p>
-                </div>
+<!-- CONTACTO (EmailJS) -->
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Completa el formulario para enviarnos tu mensaje 👇</p>
 
-                <p style="margin-top: 10px;">
-                    Horario sugerido:<br />
-                    Lunes a sábado, 9:00 a.m. – 8:00 p.m.
-                </p>
-            </div>
-        </div>
-    </section>
+    <form id="contact-form">
+        <label>Nombre:</label>
+        <input type="text" name="name" required placeholder="Tu nombre">
+
+        <label>Correo:</label>
+        <input type="email" name="email" required placeholder="tunombre@gmail.com">
+
+        <label>Mensaje:</label>
+        <textarea name="message" required placeholder="¿Qué modelos te interesan?"></textarea>
+
+        <button class="btn" type="submit">Enviar mensaje</button>
+        <p id="contact-status" style="margin-top:8px; font-size:13px;"></p>
+    </form>
+</section>
+
 </main>
 
 <footer>
-    <div class="footer-top">
-        © <span id="anio"></span> Garage 64 CR · Emprendimiento coleccionista 🇨🇷
-    </div>
-    <div class="footer-small">
-        Página creada con HTML + CSS y alojada en GitHub Pages.
-    </div>
+    © <span id="anio"></span> Garage 64 CR - Costa Rica 🇨🇷
 </footer>
 
-<!-- BOTÓN FLOTANTE DE WHATSAPP -->
-<a
-    href="https://wa.me/50685348882?text=Hola%20Garage%2064%20CR%2C%20me%20interesan%20sus%20carritos%20coleccionables.%20🚗"
-    class="whatsapp-float"
-    target="_blank"
-    rel="noopener"
-    aria-label="Chat por WhatsApp"
->
-    💬
-</a>
+<a href="https://wa.me/50685348882" class="whatsapp-float">💬</a>
 
 <script>
-    // Año actual en el footer
-    document.getElementById("anio").textContent = new Date().getFullYear();
+document.getElementById('anio').textContent = new Date().getFullYear();
+</script>
+
+<!-- SCRIPT EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+
+emailjs.init("hhpgvCFBPcvPke0NS");
+
+const form = document.getElementById('contact-form');
+const statusTxt = document.getElementById('contact-status');
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    statusTxt.textContent = "Enviando mensaje...";
+    statusTxt.style.color = "#f97316";
+
+    emailjs.sendForm("service_2dyaicn", "template_ss1o71s", this)
+        .then(() => {
+            statusTxt.textContent = "¡Mensaje enviado correctamente! ✨🚗 Pronto te contactaremos.";
+            statusTxt.style.color = "#22c55e";
+            form.reset();
+        })
+        .catch((error) => {
+            console.error(error);
+            statusTxt.textContent = "⚠️ Error al enviar el mensaje. Intenta nuevamente.";
+            statusTxt.style.color = "red";
+        });
+});
+
 </script>
 
 </body>
 </html>
+
 
 
