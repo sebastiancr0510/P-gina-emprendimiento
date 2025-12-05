@@ -520,32 +520,43 @@
         </div>
     </section>
 
-    <!-- CONTACTO (INFO + MAILTO) -->
-    <section id="contacto">
-        <h2 class="section-title">Contacto</h2>
-        <p class="section-subtitle">
-            Puedes escribirnos por correo o WhatsApp. Para correo, con solo hacer clic se abre tu app de email.
-        </p>
+ <!-- CONTACTO con Formsubmit (envío automático a tu correo) -->
+<section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <p class="section-subtitle">
+        Puedes escribirnos por WhatsApp o enviarnos un mensaje directo desde este formulario.
+        Te responderemos a tu correo lo antes posible 📩
+    </p>
 
-        <div class="contacto-layout">
-            <div class="contacto-card">
-                <h3>Correo electrónico</h3>
-                <p>
-                    Haz clic aquí para escribirnos:
-                </p>
-                <p>
-                    <a
-                        class="btn"
-                        href="mailto:garaje64cr@gmail.com?subject=Consulta%20Garage%2064%20CR&body=Hola%20Garage%2064%20CR%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20carritos.%20"
-                    >
-                        Escribir a garaje64cr@gmail.com
-                    </a>
-                </p>
-                <p>
-                    O copia el correo manualmente:<br />
-                    <span class="contact-email">garaje64cr@gmail.com</span>
-                </p>
-            </div>
+    <div class="contacto-layout">
+        <div class="contacto-card">
+            <h3>Envíanos un mensaje</h3>
+
+            <form action="https://formsubmit.co/garaje64cr@gmail.com" method="POST">
+                <!-- Configuración Formsubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde Garage 64 CR">
+                <input type="hidden" name="_next" value="https://sebastiancr0510.github.io/P-gina-emprendimiento/#contacto">
+
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" required placeholder="tunombre@correo.com">
+
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" required placeholder="¿Qué modelos te interesan?"></textarea>
+
+                <button type="submit" class="btn">Enviar mensaje</button>
+            </form>
+
+            <p class="contact-info">
+                También puedes escribirnos directo al WhatsApp:<br>
+                <strong>+506 8534-8882</strong>
+            </p>
+        </div>
+    </div>
+</section>
 
             <div class="contacto-card">
                 <h3>WhatsApp & redes</h3>
@@ -605,4 +616,5 @@
 
 </body>
 </html>
+
 
