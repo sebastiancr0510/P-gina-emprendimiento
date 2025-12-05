@@ -35,20 +35,39 @@
         }
 
         /* HEADER */
-        header {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 12px 28px; /* menos ancho */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+    /* HEADER */
+       header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px; /* separa logo y menú */
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* espaciado perfecto para los links */
+}
+
+nav a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-acento);
+}
 
         /* LOGO */
         .logo {
@@ -558,5 +577,6 @@
 
 </body>
 </html>
+
 
 
